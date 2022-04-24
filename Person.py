@@ -11,14 +11,7 @@ class Person:
     death_date: date
     father: object
     mother: object
-    children:list
+    children: list
 
-    def __init__(self, name:string, surname:string, sex:string, birt_date:date, father:object, mother, age:int):
-        self.father = father
-        self.age = age
-        self.mother = mother
-        self.birth_date = birt_date
-        self.surname = surname
-        self.sex = sex
+    def __init__(self, name: string):
         self.name = name
-        self.age = age
