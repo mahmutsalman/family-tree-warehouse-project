@@ -1,0 +1,8 @@
+E Hasan M Ayse F Ramazan M
+E Hasan M Ayse F Sumeyra F
+E Hasan M Ayse F Gulcan F
+E Ramazan M Hulya F Enes F
+E Ismail M Sumeyra F Mahmut M
+R Ramazan Mahmut
+R Ramazan Ismail
+R Gulcan Ismail
