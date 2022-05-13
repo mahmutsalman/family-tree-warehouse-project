@@ -97,6 +97,12 @@ class Person:
                 self.family_tree['cousin'].append(cousin)
             if self not in cousin.family_tree['cousin']:
                 cousin.family_tree['cousin'].append(self)
+        for p_s in parent_one.family_tree['sibling']:
+            for toBeCousin in p_s.family_tree['children']:
+                if toBeCousin not in self.family_tree['cousin']:
+                    self.family_tree['cousin'].append(toBeCousin)
+                    if self not in toBeCousin.family_tree['cousin']:
+                        toBeCousin.family_tree['cousin'].append(self)
 
         # for sibling in parent_one.family_tree['sibling']: TODO parent siblingleri kuzen olamaz
         #     if sibling not in self.family_tree['cousin']:
@@ -143,6 +149,51 @@ class Operations():
                 print('Dayi')
             else:
                 print('Teyze')
+        for p in mom.family_tree['sibling']:
+            if len(p.family_tree['spouse']) > 0:
+                if person_one.name == p.family_tree['spouse'][0]:
+                    if person_one == "F":
+                        print("Yenge")
+                    else:
+                        print('Eniste')
+                return
+
+    def search_in_law(self, spouse, person, person_two):
+        for p in spouse.family_tree['sibling']:
+            if p.name == person.name:
+                if p.gender == 'F':
+                    if person_two.gender == 'F':
+                        print('Elti')
+                        return True
+                    print('Baldiz')
+                else:
+                    print('Kayinco')
+                return True
+            if len(p.family_tree['spouse']) > 0:
+                if p.family_tree['spouse'][0].name == person.name:
+                    if p.gender == 'F':
+                        print('Bacanak')
+                    else:
+                        print('Elti')
+                    return True
+        if person in spouse.family_tree['parent']:
+            if person.gender == 'F':
+                print('Kayinvalide')
+            else:
+                print('Kayinpeder')
+            return True
+        return False
+
+    def search_in_law_down(self, me, person):
+        for p in me.family_tree['children']:
+            if len(p.family_tree['spouse']) > 0:
+                if p.family_tree['spouse'][0].name == person.name:
+                    if person.gender == 'F':
+                        print('Gelin')
+                    else:
+                        print('Damat')
+                    return True
+        return False
 
     def closest_relation(self, person_two, person_one):
         if person_two in person_one.family_tree["spouse"]:
@@ -155,20 +206,37 @@ class Operations():
                     if p.gender == 'M':
                         print('Kayinbirader')
                         return
-                    else:
-                        print('Elti')
-                        return
+                    # else:
+                    #     print('Elti')
+                    #     return
 
         for par in person_one.family_tree['parent']:
             if person_two in person_one.family_tree["parent"]:
-                print("parent")
+                if person_two.gender == 'F':
+                    print('Anne')
+                else:
+                    print('Baba')
                 return
             if person_two in par.family_tree['sibling']:
                 if par.gender == "F":
                     self.mom_list(person_two, par)
+                if par.gender == 'M':
+                    if person_two.gender == "F":
+                        print('Hala')
+                    else:
+                        print('Amca')
                     return
         if person_two in person_one.family_tree["sibling"]:
-            print("sibling")
+            if person_two.gender == 'F':
+                if person_two.birthDate < person_one.birthDate:
+                    print('Abla')
+                else:
+                    print('Baci')
+            else:
+                if person_two.birthDate < person_one.birthDate:
+                    print('Abi')
+                else:
+                    print('Erkek Kardes')
             return
         if person_two in person_one.family_tree["ancestor"]:
             print("ancestor")
@@ -176,18 +244,35 @@ class Operations():
         if person_two in person_one.family_tree["cousin"]:
             print("cousin")
             return
-        else:
-            print("Unrelated")
+        if person_two in person_one.family_tree['children']:
+            if person_two.gender == 'F':
+                print('Kiz')
+            else:
+                print('Ogul')
+        if len(person_two.family_tree['spouse']) > 0:
+            if self.search_in_law(person_two.family_tree['spouse'][0], person_one, person_two):
+                return
+        if self.search_in_law_down(person_two, person_one):
             return
+        else:
+            for p in person_one.family_tree['sibling']:
+                if person_two in p.family_tree['children']:
+                    print('Yegen')
+        return
+        # else:
+        #     print("Unrelated")
+        #     return
 
 
-def retrieve_person(person_name, gender=None):
+def retrieve_person(person_name, gender=None, birthDate=None, death=None):
     for person in person_list:
         if person.name == person_name:
             return person
 
     x = Person(person_name)
     x.gender = gender
+    x.birthDate = birthDate
+    x.death = death
     person_list.append(x)
     return x
 
@@ -205,9 +290,9 @@ def fileRead():
 
         if commands[0] == "E":
             if True:
-                person_one = retrieve_person(commands[1], commands[2])
-                person_two = retrieve_person(commands[3], commands[4])
-                person_three = retrieve_person(commands[5], commands[6])
+                person_one = retrieve_person(commands[1], commands[2], commands[3], commands[4])
+                person_two = retrieve_person(commands[5], commands[6], commands[7], commands[8])
+                person_three = retrieve_person(commands[9], commands[10], commands[11], commands[12])
                 person_three.add_parents(person_one, person_two)
 
         elif commands[0] == "W":

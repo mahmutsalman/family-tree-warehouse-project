@@ -1,8 +1,40 @@
-E Hasan M Ayse F Ramazan M
-E Hasan M Ayse F Sumeyra F
-E Hasan M Ayse F Gulcan F
-E Ramazan M Hulya F Enes F
-E Ismail M Sumeyra F Mahmut M
+E Nazife F 1948 2030 Kemal M 1945 1999 Ilhami M 1972 2040
+E Nazife F 1948 2030 Kemal M 1945 1999 Ismail M 1968 2040
+E Nazife F 1948 2030 Kemal M 1945 1999 Hafize F 1975 2040
+E Ilhami M 1972 2040 Nusabe F 1976 2040 Emin M 1995 2080
+E Ilhami M 1972 2040 Nusabe F 1976 2040 Emel F 1999 2045
+E Ismail M 1968 2040 Gulsen F 1972 2040 Mahmut M 1997 2080
+E Ismail M 1968 2040 Gulsen F 1972 2040 Ayse F 2012 2060
+E Hafize F 1975 2040 Mithat M 1970 2040 Abdulbaki M 1999 2040
+E Hafize F 1975 2040 Mithat M 1970 2040 Berat M 2000 2062
+E Hafize F 1975 2040 Mithat M 1970 2040 Aysenur M 2005 2080
+E Seher F 1950 2040 Cemal M 1945 2007 Ramazan M 1969 2040
+E Seher F 1950 2040 Cemal M 1945 2007 Gulcan F 1970 2045
+E Seher F 1950 2054 Cemal M 1945 2007  Gulsen F 1972 2051
+E Ramazan M 1969 2040 Sukran F 1972 2065 Enes M 1996 2087
+E Ramazan M 1969 2040 Sukran F 1972 2065 Esra F 2000 2077
+E Gulcan F 1970 2045 Veysel M 1966 2035 Hatice F 1995 2065
+E Gulcan F 1970 2045 Veysel M 1966 2035 Halime F 1997 2064
+E Gulcan F 1970 2045 Veysel M 1966 2035 Kevser F 1999 2068
+R Emin Mahmut
+R Abdulbaki Ayse
+R Ilhami Gulsen
+R Gulsen Mahmut
+R Veysel Hatice
+R Ismail Mahmut
+R Mahmut Ayse
+R Ilhami Mahmut
+R Hafize Mahmut
+R Mahmut Hafize
 R Ramazan Mahmut
-R Ramazan Ismail
+R Gulcan Mahmut
+R Gulsen Nazife
+R Nazife Gulsen
+R Cemal Ismail
+R Ismail Cemal
+R Ismail Veysel
+R Veysel Ismail
+R Ismail Gulcan
 R Gulcan Ismail
+R Hafize Gulsen
+R Gulsen Hafize
